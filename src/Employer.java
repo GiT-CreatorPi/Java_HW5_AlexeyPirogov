@@ -55,7 +55,7 @@ class Employer {
         this.post = "Тестировщик";
         this.workPhone = "+7(999)666-00-00";
         this.workEmail = "example@work.ru";
-        this.pay = (int)(Math.random() * 60000 + 20000);;
+        this.pay = (int)(Math.random() * 60000 + 10000);;
     }
 
     // Параметризированный конструктор для создания экземпляра класса Employer
