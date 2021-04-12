@@ -7,16 +7,16 @@
 
 import java.util.Scanner;
 
-class Employer {
+class Employees {
     //пример использования разных модификаторов доступа к полям класса для разных атрибутов соответсвующих сущности сотрудник:
-    static private int countEmployer; //Employer.countEmployer = 100;  //будет доступна в main при public
-    private int idEmployer;         //Идентификатор пользователя, счётчик для подсчёта объектов класса Employer
+    static private int countEmployees; //Employer.countEmployer = 100;  //будет доступна в main при public
+    private int idEmploye;         //Идентификатор пользователя, счётчик для подсчёта объектов класса Employer
     private int statusWork;         //Cтатус: 0 - уволен, 1 - работает, 2 - находится на больничном, 3 - находится в декрете
     private String firstName;       //Имя
     private String lastName;        //Фамилия
     private String middleName;      //Отчёство
     private int age;                //День рождения
-    private String otdel;           //Отдел
+    private String department;           //Отдел
     private String post;            //Должность
     private String workPhone;       //Номер рабочего телефона
     private String workEmail;       //Электронная почта
@@ -35,23 +35,23 @@ class Employer {
 
     //Прмер блока инициализаторов:
     static {    // Инициализатор static выполянется до создания самого первого экземпляра класса
-        countEmployer = 0;
+        countEmployees = 0;
     }
 
     {   // Инициализатор выполянется до любого конструктора, можно поместить код общий длях всех конструкторов
-        countEmployer++;
+        countEmployees++;
     }
 
     // Формат сигнатуы конструктора: <имя_конструктора_класса> (перечень параметров: <аргумент 1> ... <аргумент N>)
     // Пример переопределения конструктора по умолчанию
-    Employer() {
-        this.idEmployer = countEmployer;  //Поле ID инкременируется
+    Employees() {
+        this.idEmploye = countEmployees;  //Поле ID инкременируется
         this.statusWork = 1; //(int)(Math.random() * 3) ;    //Cтатус: 0 - уволен, 1 - работает, 2 - находится на больничном, 3 - находится в декрете
         this.firstName = "Иван";    //this - ссылка на текущий экземпляр класса. Через это слово можно обращаться к полям, методам объекта и конструкторам
         this.lastName = "Иванов";
         this.middleName = "Иванович";
         this.age = (int)(Math.random() * 40 + 18);
-        this.otdel = "Тестирования";
+        this.department = "Тестирования";
         this.post = "Тестировщик";
         this.workPhone = "+7(999)666-00-00";
         this.workEmail = "example@work.ru";
@@ -62,14 +62,14 @@ class Employer {
     // Конструктор вызывается при создании нового объекта данного класса. Конструктор выполняет инициацию оъекта
     // Если в классе не определено ни одного конструктора, то для этого конструктора автоматически создаётся конструктор без параметров
     // Сигнатура конструктора:
-    Employer(String firstName, String lastName, String middleName, int age, String workPhone, String workEmail, String otdel, String position, float pay) {
-        this.idEmployer = countEmployer;  //Поле ID инкременируется
+    Employees(String firstName, String lastName, String middleName, int age, String workPhone, String workEmail, String department, String position, float pay) {
+        this.idEmploye = countEmployees;  //Поле ID инкременируется
         this.statusWork = 1;
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
         this.age = age;
-        this.otdel = otdel;
+        this.department = department;
         this.post = position;
         this.workPhone = workPhone;
         this.workEmail = workEmail;
@@ -90,12 +90,12 @@ class Employer {
         }
         if(print == true)
         System.out.println("id\t\tСтатус\t\t\tИмя\t\t\tФамилия\t\t\tОтчёство\t\tВозраст\t\tОтдел\t\t\t\tДолжность\t\tТелефон\t\t\t\tE-mail\t\t\t  Зарплата");
-        System.out.println(idEmployer + "\t\t" + statusWork + "\t\t" + firstName + "\t\t" + lastName + "\t\t\t" + middleName + "\t\t" + age + "\t\t\t" + otdel + "\t\t" + post + "\t\t" + workPhone + "\t" + workEmail + "\t  " + pay);
+        System.out.println(idEmploye + "\t\t" + statusWork + "\t\t" + firstName + "\t\t" + lastName + "\t\t\t" + middleName + "\t\t" + age + "\t\t\t" + department + "\t\t" + post + "\t\t" + workPhone + "\t" + workEmail + "\t  " + pay);
     }
 
     //Метод экземпляра класса для ввода информации о сотруднике
     public void setInfo() {
-        System.out.println("Введите информацию о сотруднике с номером " + this.idEmployer + ":");
+        System.out.println("Введите информацию о сотруднике с номером " + this.idEmploye + ":");
         System.out.print("Введите имя:");
         this.firstName = in.next();
         System.out.print("Введите фамилию:");
@@ -105,7 +105,7 @@ class Employer {
         System.out.print("Введите возраст:");
         this.age = in.nextInt();
         System.out.print("Наименование отдела:");
-        this.otdel = in.next();
+        this.department = in.next();
         this.workPhone = "+7(999)666-00-00";
         this.workEmail = "example@work.ru";
         System.out.print("Должность:");
@@ -122,6 +122,6 @@ class Employer {
 
     //Метод класса для получения информации о всех созданных объектах класса Employer
     public static void getCountItem() {
-        System.out.println("Количество объектов в классе: " + countEmployer);
+        System.out.println("Количество объектов в классе: " + countEmployees);
     }
 }
